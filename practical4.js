@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Define categories for file organization
+
 const fileCategories = {
     Images: ['.jpg', '.jpeg', '.png', '.gif', '.bmp'],
     Documents: ['.pdf', '.doc', '.docx', '.txt', '.ppt', '.xls'],
@@ -9,7 +9,6 @@ const fileCategories = {
     Others: []
 };
 
-// Function to organize files
 function organizeFiles(directoryPath) {
     if (!fs.existsSync(directoryPath)) {
         console.log("Directory does not exist!");
@@ -43,13 +42,13 @@ function organizeFiles(directoryPath) {
         }
     });
 
-    // Save log data
+ 
     const logFilePath = path.join(directoryPath, "summary.txt");
     fs.writeFileSync(logFilePath, logData);
     console.log("Files have been organized successfully!");
 }
 
-// Accept user input from command line
+
 const userPath = process.argv[2];
 if (userPath) {
     organizeFiles(userPath);
